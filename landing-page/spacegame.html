@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ray Tracer</title>
+    <title>Space Crap Game</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
-    <link href="css/raytracer.css" rel="stylesheet">
+    <link href="css/spacegame.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +42,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> Ray Tracer
+                    <i class="fa fa-play-circle"></i> Space Crap Game
                 </a>
             </div>
 
@@ -54,7 +54,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#article">Article</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#download">Download</a>
@@ -75,9 +75,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Ray Tracer</h1>
-                        <p class="intro-text">Rendering the scenes with RayTracing algorithm.<br>Generate the scene pictures with the text-based script files.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <h1 class="brand-heading">Space Crap Game</h1>
+                        <p class="intro-text">Battle the enemies in random generated maze.<br>Shoot like FPS but command your allies like RTS and TowerDefense!</p>
+                        <a href="#article" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -86,35 +86,51 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About my Ray Tracer</h2>
-                <p>Rasterization, simply speaking, is to draw the triangles onto the screen. With the Z buffer, it can handle the situation that multiple triangles overlap each other.
-                <br><br>
-                Ray Tracing, unlike Rasterization, starts from the camera's position, shoot a ray to the position where each pixel lies in the space, calculate its final color with the affections of reflection, refraction, etc.
-                <br><br>
-                Ray Tracing is more realistic, due to it simulates the real lighting, and affections from all the other objects in the scene.
-                <br><br><br>
-                Special Thanks to Milo Yip's Blog <a href="http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html">RayTracing with JavaScript</a>
-                </p>
+    <!-- Post Content -->
+    <article id="article">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <br><br><br><br>
+                    <h2 class="section-heading">Map Generation</h2>
+                    <img class="img-responsive" src="img/SpaceGame/pcg.jpg" alt=""><br>
+                    <p>As the picture above, Room 1, 2, and 3 are hollowed from the solid space. It's easy to implement this: when create a new random room, check if it's overlapping with other rooms using AABB collision detect.</p>
+                    <p>Next step, we choose two rooms to connect. Here, Room 1 and 2's centers can be connected by Path A and B, simply choose A or B randomly.</p>
+                    <p>Repeat hollowing the rooms and connecting the rooms by specified times.</p>
+
+                    <h2 class="section-heading">PathNodes Generation</h2>
+                    <img class="img-responsive" src="img/SpaceGame/pathnodes.jpg" alt=""><br>
+                    <p>The PathNodes are needed for the actors to go to the destinations.</p>
+                    <p>First, we place the PathNode on the KEY points (rooms' centers &amp; corridors' corners).</p>
+                    <p>Then, shoot a ray from each point to other points, see if the ray is intersecting with the walls (remember the raytracing, huh?), if not, we can put these two PathNodes into the Connected Graph.</p>
+                    <p>As shown above, from PathNode A, the green rays mean connected, while the red rays are intersecting with the walls.</p>
+                    <p>Let's see how this approaches in the game:<br><img class="img-responsive" src="img/SpaceGame/pathnodes2.jpg" alt=""></p>
+
+                    <h2 class="section-heading">Path Finding</h2>
+                    <p>Here we used the standard A* searching algorithm (Breadth First Search USING Priority Queue WITH Heuristic Function). Heuristic Function is the distance to the target PathNode.</p>
+
+                    <h2 class="section-heading">A Glimpse of the Game</h2>
+                    <p>Main Menu: <br><img class="img-responsive" src="img/SpaceGame/mainmenu.jpg" alt=""><br>Three planes fly through the camera.</p>
+                    <p>Game Scene: <br><img class="img-responsive" src="img/SpaceGame/gamescene.jpg" alt=""><br>The red BIG plane above is the our base, the SMALL plane nearby is the ally, and the flag is the destination our selected allies pushing.</p>
+                    <p>Oops, Game Over: <br><img class="img-responsive" src="img/SpaceGame/gameover.jpg" alt=""></p>
+                </div>
             </div>
         </div>
-    </section>
+    </article>
 
     <!-- Download Section -->
     <section id="download" class="content-section text-center">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download my Ray Tracer project</h2>
-                    <p>You can download my Ray Tracer from my GitHub.</p>
-                    <a href="https://github.com/sieg-lu/ray-tracer-cpp-computer-graphics" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <h2>Download Space Crap Game</h2>
+                    <p>You can download Space Crap Game from my GitHub. (Unity3D Project)</p>
+                    <a href="https://github.com/sieg-lu/neu-game-ai-space-game" class="btn btn-default btn-lg">Visit Download Page</a>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer>
