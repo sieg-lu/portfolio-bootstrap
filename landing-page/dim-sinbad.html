@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
-    <link href="css/spacegame.css" rel="stylesheet">
+    <link href="css/dim-sinbad.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +42,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> Space Crap Game
+                    <i class="fa fa-play-circle"></i> Dimensional Sinbad
                 </a>
             </div>
 
@@ -78,8 +78,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Space Crap Game</h1>
-                        <p class="intro-text">Battle the enemies in random generated maze.<br>Shoot like FPS but command your allies like RTS and TowerDefense!</p>
+                        <h1 class="brand-heading">Dimensional Sinbad</h1>
+                        <p class="intro-text">Change the view between 2D and 3D<br>to get Sinbad to the destination!</p>
                         <a href="#article" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -94,8 +94,8 @@
         <div class="video-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Watch Space Crap Game Video</h2>
-                    <a href="https://www.youtube.com/watch?v=yGVfG1PFHAI" class="btn btn-default btn-lg">Watch Video on YouTube</a>
+                    <h2>Watch Dimensional Sinbad</h2>
+                    <a href="https://www.youtube.com/watch?v=WQQfHms2x08" class="btn btn-default btn-lg">Watch Video on YouTube</a>
                 </div>
             </div>
         </div>
@@ -108,29 +108,18 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <br><br><br><br>
                     <h2 class="section-heading">Introduction</h2>
-                    <p>Captain Min's army was trapped in a space maze, he has to fight the other armies along with his allies in this randomly generated maze.</p>
-
+                    <p>Sinbad is trying to get to the GREEN grid getting across the maze, can you help him?</p>
+                    <p>"Yes! Of course I can!" But......</p>
+                    <img class="img-responsive" src="img/DimSinbad/3d.jpg" alt=""><br>
+                    <p>In a scene like this, how can you help the Sinbad get to the GREEN grid? :P</p>
+                    <img class="img-responsive" src="img/DimSinbad/2d.jpg" alt=""><br>
+                    <p>Make it 2D! Pass through like no traps at all!</p>
+                    
                     <h2 class="section-heading">A Glimpse of the Game</h2>
-                    <p>Main Menu: <br><img class="img-responsive" src="img/SpaceGame/mainmenu.jpg" alt=""><br>Three planes fly through the camera.</p>
-                    <p>Game Scene: <br><img class="img-responsive" src="img/SpaceGame/gamescene.jpg" alt=""><br>The red BIG plane above is the our base, the SMALL plane nearby is the ally, and the flag is the destination our selected allies pushing.</p>
-                    <p>Oops, Game Over: <br><img class="img-responsive" src="img/SpaceGame/gameover.jpg" alt=""></p>
+                    <p><img class="img-responsive" src="img/DimSinbad/red.jpg" alt=""><br>Find a way to avoid the RED grid.</p>
+                    <p><img class="img-responsive" src="img/DimSinbad/enemy.jpg" alt=""><br>Be careful! The enemies are on the way!</p>
+                    <p><img class="img-responsive" src="img/DimSinbad/gold.jpg" alt=""><br>Collect the golds!</p>
 
-                    <h2 class="section-heading">Map Generation</h2>
-                    <img class="img-responsive" src="img/SpaceGame/pcg.jpg" alt=""><br>
-                    <p>As the picture above, Room 1, 2, and 3 are hollowed from the solid space. It's easy to implement this: when create a new random room, check if it's overlapping with other rooms using AABB collision detect.</p>
-                    <p>Next step, we choose two rooms to connect. Here, Room 1 and 2's centers can be connected by Path A and B, simply choose A or B randomly.</p>
-                    <p>Repeat hollowing the rooms and connecting the rooms by specified times.</p>
-
-                    <h2 class="section-heading">PathNodes Generation</h2>
-                    <img class="img-responsive" src="img/SpaceGame/pathnodes.jpg" alt=""><br>
-                    <p>The PathNodes are needed for the actors to go to the destinations.</p>
-                    <p>First, we place the PathNode on the KEY points (rooms' centers &amp; corridors' corners).</p>
-                    <p>Then, shoot a ray from each point to other points, see if the ray is intersecting with the walls (remember the raytracing, huh?), if not, we can put these two PathNodes into the Connected Graph.</p>
-                    <p>As shown above, from PathNode A, the green rays mean connected, while the red rays are intersecting with the walls.</p>
-                    <p>Let's see how this approach actions in the game:<br><img class="img-responsive" src="img/SpaceGame/pathnodes2.jpg" alt=""></p>
-
-                    <h2 class="section-heading">Path Finding</h2>
-                    <p>Here we used the standard A* searching algorithm (Breadth First Search USING Priority Queue WITH Heuristic Function). Heuristic Function is the distance to the target PathNode.</p>
                 </div>
             </div>
         </div>
@@ -141,9 +130,9 @@
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Space Crap Game</h2>
-                    <p>You can download Space Crap Game from my GitHub. (Unity3D Project)</p>
-                    <a href="https://github.com/sieg-lu/neu-game-ai-space-game" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <h2>Download Dimensional Sinbad</h2>
+                    <p>You can download Dimensional Sinbad from my GitHub. (Ogre3D Project)</p>
+                    <a href="https://github.com/sieg-lu/dimensional-sinbad" class="btn btn-default btn-lg">Visit Download Page</a>
                 </div>
             </div>
         </div>
