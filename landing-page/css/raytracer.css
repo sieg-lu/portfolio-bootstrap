@@ -5,7 +5,7 @@
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/raytracer.jpg) no-repeat bottom center scroll;
+    background: url(../img/Raytracer/raytracer.jpg) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -45,7 +45,7 @@
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(../img/raytracer-download.jpg) no-repeat center center scroll;
+    background: url(../img/Raytracer/raytracer-download.jpg) no-repeat center center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
