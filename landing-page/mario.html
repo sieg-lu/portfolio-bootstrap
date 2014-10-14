@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mario AI</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/mario.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> Mario AI related Topics
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#video">Video</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#article">Article</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="index.html">Back</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading"></h1>
+                        <p class="intro-text"></p>
+                        <a href="#article" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video Section -->
+    <section id="video" class="content-section text-center">
+        <div class="video-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Watch how my AI actions</h2>
+                    <a href="https://www.youtube.com/watch?v=18XKTl9aVGQ" class="btn btn-default btn-lg">Watch Video on YouTube</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <article id="article">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <br><br><br><br>
+                    <h1 class="brand-heading">Mario AI</h1>
+                    <p>A mario AI handle that simulates people's behavior when playing Mario Game</p>
+
+                    <h3 class="section-heading">Finite State Machine</h3>
+
+                    <h4 class="section-heading">Gap-Status</h4>
+                    <li>Description: a status that when Mario is facing a gap</li>
+                    <li>ii. Enter Condition: detecting the level scene in front of the Mario to check if there is a gap</li>
+                    <li>iii. Exit Condition: the JUMP button is released and Mario is on the ground</li>
+                    <li>iv. Strategy: pressing the JUMP, RIGHT, and SPEED buttons all the time until exit this status</li><br><br>
+
+                    <h4 class="section-heading">Obstacle-Status</h4>
+                    <li>i. Description: a status that when Mario is standing in front of / two steps away from the obstacle, which could be a wall, a flower pot, or a cannon</li>
+                    <li>ii. Enter Condition: if Mario is standing in front of the obstacle, of two steps away (this'll be generated randomly with a possibility of 1/3)</li>
+                    <li>iii. Exit Condition: the JUMP button is released and Mario is on the ground again</li>
+                    <li>Strategy: if an enemy is detected, the SPEED button will be hit repeatedly to shoot the fire, hold JUMP button trying to get over the obstacle, and hold the LEFT button to stop the Mario and start shooting fire</li><br><br>
+
+                    <h4 class="section-heading">Enemy-Insight-Status</h4>
+                    <li>i. Description: a status that an enemy near Mario is detected, in the range of { 7(Positive X), 0(Negative X), 4(Positive Y), 4(Negative Y) }</li>
+                    <li>ii. Enter Condition: if an enemy is detected within the testing area</li>
+                    <li>iii. Exit Condition: if there's no enemy in the testing area, or when Mario is facing the obstacle or gap</li>
+                    <li>iv. Strategy: the Mario will act according to this paragraph: <br><img class="img-responsive" src="img/Mario/area.jpg" alt=""></li>
+                    <li>E (Emergency): just hit the SPEED button repeatedly, and if Mario can shoot fire, it'll do it randomly in a possibility of 1/3</li>
+                    <li>Area 1: hit the JUMP button in a delay of 3, and hit the SPEED button repeatedly to shoot the fire</li>
+                    <li>Area 2: only hit the SPEED button repeatedly to shoot the fire</li>
+                    <li>Area 3: oops, enemy behind me, hold the SPEED button to speed up running away</li><br><br>
+
+                    <h4 class="section-heading">Under-Brick-Status</h4>
+                    <li>i. Description: a status when Mario is standing under a soft obstacle or a brick with X offset of 1</li>
+                    <li>ii. Enter Condition: when Mario is standing under a soft obstacle or a brick randomly with a possibility of 1/3</li>
+                    <li>iii. Exit Condition: the JUMP button is released and Mario is on the ground again</li>
+                    <li>iv. Strategy: press the JUMP button for a period of time</li><br><br>
+
+                    <h4 class="section-heading">Normal-Status</h4>
+                    <li>i. Description: normal status, the default one</li>
+                    <li>Strategy: the SPEED button is hold in a random period of time from 10 to 20, and if Mario is standing on an edge and there's a gap up ahead, release the SPEED button and hold LEFT button to slow down</li><br><br>
+
+                    <h3 class="section-heading">FSM Diagram</h3>
+                    <img class="img-responsive" src="img/Mario/fsm.jpg" alt=""><br><br>
+
+                    <h3 class="section-heading">Important Tool Class: Timing Button</h3>
+                    <h4 class="section-heading">Description: <br>TimingButton simulates two ways that people hit the button</h4>
+                    <li>i. Holding for a period of time</li>
+                    <li>ii. Hitting the button repeatedly</li><br><br>
+                    <h4 class="section-heading">Illustration of the buttons</h4>
+                    <img class="img-responsive" src="img/Mario/button.jpg" alt=""><br><br><br><br>
+
+                    <h1 class="brand-heading">Level Generator</h1>
+
+                    <h3 class="section-heading">Simplified Regular Expression</h3>
+                    <h4 class="section-heading">Pattern</h4>
+                    <li>abcd: terrain type</li>
+                    <li>( --begin paralleling</li>
+                    <li>| --or</li>
+                    <li>) --end paralleling</li>
+                    <li>* --repeated (rand() % 5) times</li>
+                    <li>+ --repeated (rand() % 4 + 1) times</li><br><br>
+                    <h4 class="section-heading">Example: abcd(bd|cd)+a</h4>
+                    <img class="img-responsive" src="img/Mario/re.jpg" alt="">
+
+                    <h3 class="section-heading">Mario Level Generator</h3>
+                    <li>a: A normal flat ground with length of rand() % sMediumLengthBase</li>
+                    <li>b: A pit/lower ground with length to be rand() % sMediumLengthBase</li>
+                    <li>c: A higher ground with the length to be rand() % sLongLengthBase, height of rand() % sShortLengthBase</li>
+                    <li>d: <img class="img-responsive" src="img/Mario/d.jpg" alt="">
+                        <li>1 --depth: rand() % sShortLengthBase, length: rand() % sCloseLengthBase</li>
+                        <li>2 --depth: equals to 1's depth, length: rand() % sMediumLengthBase</li>
+                        <li>3 --height (relative to initial ground): rand() % sCloseLengthBase, depth: equals to 1's depth, length: rand() % sLongLengthBase</li>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Download AI and Level Generator</h2>
+                    <p>You can download my AI and Level Generator from my GitHub. (Java Project)</p>
+                    <a href="https://github.com/sieg-lu/mario-game-ai" class="btn btn-default btn-lg">Visit Download Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Yufan Lu 2014</p>
+        </div>
+    </footer>
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+</body>
+
+</html>
